@@ -46,7 +46,7 @@ function wlmsal_show_authorized_levels( $atts ) {
         $shortcode_output .= '<div class="wishlist-member-levels">';
 
         // show level header
-        if ( $attributes['show_header'] ) {
+        if ( 'true' == $attributes['show_header'] ) {
             $shortcode_output .= '<h2>' . $level->Name . '</h2>';
         }
 
@@ -58,7 +58,7 @@ function wlmsal_show_authorized_levels( $atts ) {
 
         // loop over all pages for this level
         foreach ( $this_level_pages['pages']['page'] as $this_page ) {
-            if ( ! in_array( $this_page['ID'], $attributes['pages_to_ignore'] ) ) {
+            if ( ! in_array( $this_page['ID'], explode( ',', $attributes['pages_to_ignore'] ) ) ) {
                 $shortcode_output .= '<li><a href="' . esc_url( get_permalink( $this_page['ID'] ) ) . '">' . $this_page['name'] . '</a></li>';
             }
         }
