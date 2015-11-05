@@ -1,4 +1,4 @@
-# WishList Member #
+# WishList Member: Show All Levels #
 **Contributors:** macbookandrew
 **Tags:** wishlist,membership
 **Donate link:** https://cash.me/$AndrewRMinionDesign
