@@ -31,21 +31,26 @@ function wlmsal_show_authorized_levels() {
     // get all levels this user is authorized for
     $authorized_levels = wlmapi_get_member_levels( get_current_user_id() );
 
-    // loop over authorized levels, displaying all content for each
-    foreach ( $authorized_levels as $level ) { ?>
-        <div class="wishlist-member-levels">
-        <h2><?php echo $level->Name; ?></h2>
-        <ul>
+    //initialize variable
+    $shortcode_output = NULL;
 
-        <?php
+    // loop over authorized levels, displaying all content for each
+    foreach ( $authorized_levels as $level ) {
+
+        $shortcode_output .= '<div class="wishlist-member-levels">
+        <h2>' . $level->Name . '</h2>
+        <ul>';
+
         // get all pages and posts for this level
         $this_level_pages = wlmapi_get_level_pages( $level->Level_ID );
 
         // loop over all pages for this level
         foreach ( $this_level_pages['pages']['page'] as $this_page ) {
-            echo '<li><a href="' . esc_url( get_permalink( $this_page['ID'] ) ) . '">' . $this_page['name'] . '</a></li>';
-        }?>
-        </ul>
-    <?php }
+            $shortcode_output .= '<li><a href="' . esc_url( get_permalink( $this_page['ID'] ) ) . '">' . $this_page['name'] . '</a></li>';
+        }
+        $shortcode_output .= '</ul>';
+    }
+
+    return $shortcode_output;
 }
 add_shortcode( 'wlm_all_authorized_levels', 'wlmsal_show_authorized_levels' );
