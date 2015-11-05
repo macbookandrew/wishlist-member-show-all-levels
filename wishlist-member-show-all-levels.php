@@ -29,10 +29,10 @@
  */
 function wlmsal_show_authorized_levels( $atts ) {
     // get attributes
-    $attributes = shortcode_atts(
+    $attributes = shortcode_atts( array(
         'show_header'       => 'true',
         'pages_to_ignore'   => array()
-    );
+    ), $atts );
 
     // get all levels this user is authorized for
     $authorized_levels = wlmapi_get_member_levels( get_current_user_id() );
