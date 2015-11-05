@@ -48,4 +48,4 @@ function wlmsal_show_authorized_levels() {
         </ul>
     <?php }
 }
-add_shortcode( 'wlm_all_levels', 'wlmsal_show_authorized_levels' );
+add_shortcode( 'wlm_all_authorized_levels', 'wlmsal_show_authorized_levels' );

@@ -11,7 +11,7 @@ Provides a shortcode that outputs all levels a member is allowed to access
 
 == Installation ==
 1. Install the plugin
-2. Use the shortcode `[wlm_all_levels]` to show all authorized levels for the logged-in user.
+2. Use the shortcode `[wlm_all_authorized_levels]` to show all authorized levels for the logged-in user.
 
 == Changelog ==
 1.0
