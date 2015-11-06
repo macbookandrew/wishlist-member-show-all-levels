@@ -43,15 +43,7 @@ function wlmsal_show_authorized_levels( $atts ) {
     // loop over authorized levels, displaying all content for each
     foreach ( $authorized_levels as $level ) {
 
-        $shortcode_output .= '<div class="wishlist-member-levels">';
-
-        // show level header
-        if ( 'true' == $attributes['show_header'] ) {
-            $shortcode_output .= '<h2>' . $level->Name . '</h2>';
-        }
-
-        // start list output
-        $shortcode_output .= '<ul>';
+        $shortcode_output .= '<div class="wishlist-member-levels wpex-row vcex-portfolio-grid wpex-clr entries vc_grid">';
 
         // get all pages and posts for this level
         $this_level_pages = wlmapi_get_level_pages( $level->Level_ID );
@@ -59,10 +51,29 @@ function wlmsal_show_authorized_levels( $atts ) {
         // loop over all pages for this level
         foreach ( $this_level_pages['pages']['page'] as $this_page ) {
             if ( ! in_array( $this_page['ID'], explode( ',', $attributes['pages_to_ignore'] ) ) ) {
-                $shortcode_output .= '<li><a href="' . esc_url( get_permalink( $this_page['ID'] ) ) . '">' . $this_page['name'] . '</a></li>';
+                $shortcode_output .= '<div class="vc_grid-item vc_clearfix vc_col-sm-4 vc_grid-item-zone-c-bottom vc_visible-item">
+                    <div class="vc_gitem-zone vc_gitem-zone-a vc-gitem-zone-height-mode-auto vc-gitem-zone-height-mode-auto-1-1 vc_gitem-is-link" style="background-image: url(' . wp_get_attachment_image_src( get_post_thumbnail_id( $this_page['ID'] ) )[0] . ');">
+                        <a href="' . esc_url( get_permalink( $this_page['ID'] ) ) . '" title="' . get_the_title( $this_page['ID'] ) . '">' . get_the_post_thumbnail( $this_page['ID'], 'post-thumbnail', array( 'class' => 'vc_gitem-zone-img' ) ) . '</a>
+                        <div class="vc_gitem-zone-mini"></div>
+                    </div>
+                    <div class="vc_gitem-zone vc_gitem-zone-c">
+                        <div class="vc_gitem-zone-mini">
+                            <div class="vc_gitem_row vc_row vc_gitem-row-position-top">
+                                <div class="vc_col-sm-12 vc_gitem-col vc_gitem-col-align-left">
+                                    <div class="vc_custom_heading vc_gitem-post-data vc_gitem-post-data-source-post_title">
+                                        <h4 style="text-align: left">' . get_the_title( $this_page['ID'] ) . '</h4>
+                                    </div>
+                                    <div class="vc_custom_heading vc_gitem-post-data vc_gitem-post-data-source-post_excerpt">
+                                        <p style="text-align: left">' . get_the_excerpt( $this_page['ID'] ) . '</p>
+                                    </div>
+                                    <div class="vc_btn3-container vc_btn3-left"><a href="' . esc_url( get_the_permalink( $this_page['ID'] ) ) . '" class="vc_gitem-link vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-color-white" title="Read more">Read more</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>';
             }
         }
-        $shortcode_output .= '</ul>';
+        $shortcode_output .= '</div>';
     }
 
     // return all the content
