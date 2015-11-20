@@ -3,8 +3,8 @@ Contributors: macbookandrew
 Tags: wishlist,membership
 Donate link: https://cash.me/$AndrewRMinionDesign
 Requires at least: 4.0
-Tested up to: 4.3.1
-Stable tag: 1.1
+Tested up to: 4.4
+Stable tag: 1.1.1
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,9 @@ Yes; use `[wlm_all_authorized_levels show_header="false"]` to hide the header of
 Yes; get the IDs of those pages from the WordPress admin page and then add them to the shortcode separated by commas, like this: `[wlm_all_authorized_levels pages_to_ignore="151,20"]`.
 
 == Changelog ==
+1.1.1
+- Fix missing wrapper closing
+
 1.1
 - Add support for ignoring specific pages and removing the header
 
