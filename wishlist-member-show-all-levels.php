@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/macbookandrew/wishlist-member-show-all-levels
  * GitHub Plugin URI: https://github.com/macbookandrew/wishlist-member-show-all-levels
  * Description: Provides a shortcode that outputs all levels a member is allowed to access
- * Version: 1.1
+ * Version: 1.1.1
  * Author: AndrewRMinion Design
  * Author URI: http://andrewrminion.com/
  * License: GPL2
@@ -41,28 +41,30 @@ function wlmsal_show_authorized_levels( $atts ) {
     $shortcode_output = NULL;
 
     // loop over authorized levels, displaying all content for each
-    foreach ( $authorized_levels as $level ) {
-
+    if ( $authorized_levels ) {
         $shortcode_output .= '<div class="wishlist-member-levels">';
+        foreach ( $authorized_levels as $level ) {
 
-        // show level header
-        if ( 'true' == $attributes['show_header'] ) {
-            $shortcode_output .= '<h2>' . $level->Name . '</h2>';
-        }
-
-        // start list output
-        $shortcode_output .= '<ul>';
-
-        // get all pages and posts for this level
-        $this_level_pages = wlmapi_get_level_pages( $level->Level_ID );
-
-        // loop over all pages for this level
-        foreach ( $this_level_pages['pages']['page'] as $this_page ) {
-            if ( ! in_array( $this_page['ID'], explode( ',', $attributes['pages_to_ignore'] ) ) ) {
-                $shortcode_output .= '<li><a href="' . esc_url( get_permalink( $this_page['ID'] ) ) . '">' . $this_page['name'] . '</a></li>';
+            // show level header
+            if ( 'true' == $attributes['show_header'] ) {
+                $shortcode_output .= '<h2>' . $level->Name . '</h2>';
             }
+
+            // start list output
+            $shortcode_output .= '<ul>';
+
+            // get all pages and posts for this level
+            $this_level_pages = wlmapi_get_level_pages( $level->Level_ID );
+
+            // loop over all pages for this level
+            foreach ( $this_level_pages['pages']['page'] as $this_page ) {
+                if ( ! in_array( $this_page['ID'], explode( ',', $attributes['pages_to_ignore'] ) ) ) {
+                    $shortcode_output .= '<li><a href="' . esc_url( get_permalink( $this_page['ID'] ) ) . '">' . $this_page['name'] . '</a></li>';
+                }
+            }
+            $shortcode_output .= '</ul>';
         }
-        $shortcode_output .= '</ul>';
+        $shortcode_output .= '</div>';
     }
 
     // return all the content
