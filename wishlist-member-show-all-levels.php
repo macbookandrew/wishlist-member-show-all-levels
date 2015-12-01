@@ -4,9 +4,9 @@
  * Plugin URI: https://github.com/macbookandrew/wishlist-member-show-all-levels
  * GitHub Plugin URI: https://github.com/macbookandrew/wishlist-member-show-all-levels
  * Description: Provides a shortcode that outputs all levels a member is allowed to access
- * Version: 1.1.1
+ * Version: 1.2
  * Author: AndrewRMinion Design
- * Author URI: http://andrewrminion.com/
+ * Author URI: https://andrewrminion.com/
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,24 +45,54 @@ function wlmsal_show_authorized_levels( $atts ) {
         $shortcode_output .= '<div class="wishlist-member-levels">';
         foreach ( $authorized_levels as $level ) {
 
-            // show level header
-            if ( 'true' == $attributes['show_header'] ) {
-                $shortcode_output .= '<h2>' . $level->Name . '</h2>';
-            }
-
-            // start list output
-            $shortcode_output .= '<ul>';
-
             // get all pages and posts for this level
             $this_level_pages = wlmapi_get_level_pages( $level->Level_ID );
+            if ( $this_level_pages ) {
+                $authorized_pages_array = array();
+            }
 
-            // loop over all pages for this level
+            // loop over all pages for this level, adding them to an array for WP query
             foreach ( $this_level_pages['pages']['page'] as $this_page ) {
                 if ( ! in_array( $this_page['ID'], explode( ',', $attributes['pages_to_ignore'] ) ) ) {
-                    $shortcode_output .= '<li><a href="' . esc_url( get_permalink( $this_page['ID'] ) ) . '">' . $this_page['name'] . '</a></li>';
+                    $authorized_pages_array[] = $this_page['ID'];
                 }
             }
-            $shortcode_output .= '</ul>';
+
+            // WP_Query arguments
+            $args = array (
+                'post__in'               => $authorized_pages_array,
+                'post_type'              => array( 'page' ),
+                'posts_per_page'         => '-1',
+                'orderby'                => array( 'menu_order', 'title' ),
+                'cache_results'          => true,
+                'update_post_meta_cache' => true,
+            );
+
+            // The Query
+            $authorized_pages_query = new WP_Query( $args );
+
+            // The Loop
+            if ( $authorized_pages_query->have_posts() ) {
+                // show level header
+                if ( 'true' == $attributes['show_header'] ) {
+                    $shortcode_output .= '<h2>' . $level->Name . '</h2>';
+                }
+
+                // start list output
+                $shortcode_output .= '<ul>';
+
+                // loop through posts
+                while ( $authorized_pages_query->have_posts() ) {
+                    $authorized_pages_query->the_post();
+                    $shortcode_output .= '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+                }
+
+                $shortcode_output .= '</ul>';
+            }
+
+            // Restore original Post Data
+            wp_reset_postdata();
+
         }
         $shortcode_output .= '</div>';
     }
