@@ -1,18 +1,23 @@
-# WishList Member: Show All Levels #
-**Contributors:** macbookandrew
-**Tags:** wishlist,membership
-**Donate link:** https://cash.me/$AndrewRMinionDesign
-**Requires at least:** 4.0
-**Tested up to:** 4.4
-**Stable tag:** 1.2
-**License:** GPL2
-**License URI:** https://www.gnu.org/licenses/gpl-2.0.html
+**# WishList Member:** Show All Levels #  
+**Contributors:** macbookandrew  
+**Tags:** wishlist,membership  
+**Donate link:** https://cash.me/$AndrewRMinionDesign  
+**Requires at least:** 4.0  
+**Tested up to:** 4.4.2  
+**Stable tag:** 1.2.1  
+**License:** GPL2  
+**License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
-Provides a shortcode that outputs all levels a member is allowed to access
+Provides a shortcode that outputs all levels a member is allowed to access.
+
+## Description ##
+
+Have you ever wanted a way to show all the content a member is allowed to access? This plugin gives you a simple shortcode that lists all the pages a user is allowed to access, grouped by level.
 
 ## Installation ##
 1. Install the plugin
 2. Use the shortcode `[wlm_all_authorized_levels]` to show all authorized levels for the logged-in user.
+3. See the [FAQ](faq/) for more options.
 
 ## Frequently Asked Questions ##
 ### Can I hide the header? ###
@@ -21,9 +26,13 @@ Yes; use `[wlm_all_authorized_levels show_header="false"]` to hide the header of
 
 ### Can I ignore specific pages? ###
 
-**Yes; get the IDs of those pages from the WordPress admin page and then add them to the shortcode separated by commas, like this:** `[wlm_all_authorized_levels pages_to_ignore="151,20"]`.
+**Yes; get the IDs of those pages from the WordPress admin page and then add them to the shortcode separated by commas, like this:** `[wlm_all_authorized_levels pages_to_ignore="151,20"]`.  
 
 ## Changelog ##
+
+1.2.1
+- Add fix for edge case where levels with no protected pages would sometimes cause a white screen of death
+
 1.2
 - Use WP_Query to allow for better sorting
 

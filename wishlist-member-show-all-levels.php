@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/macbookandrew/wishlist-member-show-all-levels
  * GitHub Plugin URI: https://github.com/macbookandrew/wishlist-member-show-all-levels
  * Description: Provides a shortcode that outputs all levels a member is allowed to access
- * Version: 1.2
+ * Version: 1.2.1
  * Author: AndrewRMinion Design
  * Author URI: https://andrewrminion.com/
  * License: GPL2
@@ -53,9 +53,7 @@ function wlmsal_show_authorized_levels( $atts ) {
 
             // loop over all pages for this level, adding them to an array for WP query
             foreach ( $this_level_pages['pages']['page'] as $this_page ) {
-                if ( ! in_array( $this_page['ID'], explode( ',', $attributes['pages_to_ignore'] ) ) ) {
-                    $authorized_pages_array[] = $this_page['ID'];
-                }
+                $authorized_pages_array[] = $this_page['ID'];
             }
 
             // WP_Query arguments
@@ -84,7 +82,11 @@ function wlmsal_show_authorized_levels( $atts ) {
                 // loop through posts
                 while ( $authorized_pages_query->have_posts() ) {
                     $authorized_pages_query->the_post();
-                    $shortcode_output .= '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+                    $shortcode_output .= '<li';
+                    if ( in_array( get_the_ID(), explode( ',', $attributes['pages_to_ignore'] ) ) ) {
+                        $shortcode_output .= ' class="hidden"';
+                    }
+                    $shortcode_output .= '><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
                 }
 
                 $shortcode_output .= '</ul>';
