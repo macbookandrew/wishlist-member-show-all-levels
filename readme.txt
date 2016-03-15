@@ -40,7 +40,7 @@ Yes, you can include specific pages using the `pages_to_include` attribute like 
 
 You can also use the `wlm_authorized_pages_array` filter to modify the array:
 
-```
+`
 add_filter( 'wlm_authorized_pages_array', 'tweak_wlm_pages' );
 function tweak_wlm_pages( $array ) {
     // add a page
@@ -54,7 +54,7 @@ function tweak_wlm_pages( $array ) {
     // return the modified array
     return $array;
 }
-```
+`
 
 = Can I use a custom template? =
 

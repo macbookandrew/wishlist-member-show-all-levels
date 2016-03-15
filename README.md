@@ -40,21 +40,21 @@ You can also use the `wlm_authorized_pages_array` filter to modify the array; se
 
 You can also use the `wlm_authorized_pages_array` filter to modify the array:
 
-```
-add_filter( 'wlm_authorized_pages_array', 'tweak_wlm_pages' );
-function tweak_wlm_pages( $array ) {
-    // add a page
-    $array[] = $page_ID_to_add;
 
-    // remove a page
-    if ( $false !== ( $key = array_search( $page_ID_to_remove, $array ) ) ) {
-        unset( $array[$key] );
-    }
+	add_filter( 'wlm_authorized_pages_array', 'tweak_wlm_pages' );
+	function tweak_wlm_pages( $array ) {
+	    // add a page
+	    $array[] = $page_ID_to_add;
+	
+	    // remove a page
+	    if ( $false !== ( $key = array_search( $page_ID_to_remove, $array ) ) ) {
+	        unset( $array[$key] );
+	    }
+	
+	    // return the modified array
+	    return $array;
+	}
 
-    // return the modified array
-    return $array;
-}
-```
 
 ### Can I use a custom template? ###
 
