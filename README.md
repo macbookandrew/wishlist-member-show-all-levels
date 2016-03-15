@@ -72,29 +72,29 @@ Not yet, but there are filters for every part of the output; here’s a list of 
 ## Changelog ##
 
 ### 1.4.2 ###
-* Update documentation
+- Update documentation
 
 ### 1.4.1 ###
-* Add filter for modifying the array of pages before WP query
+- Add filter for modifying the array of pages before WP query
 
 ### 1.4 ###
-* Major change: defaults to showing pages in one list rather than grouped by level
-* Old behavior still available with the `group_by_level="true"` attribute
+**- Major change:** defaults to showing pages in one list rather than grouped by level  
+- Old behavior still available with the `group_by_level="true"` attribute
 
 ### 1.3 ###
-* Add filters for customizing the output
+- Add filters for customizing the output
 
 ### 1.2.1 ###
-* Add fix for edge case where levels with no protected pages would sometimes cause a white screen of death
+- Add fix for edge case where levels with no protected pages would sometimes cause a white screen of death
 
 ### 1.2 ###
-* Use WP_Query to allow for better sorting
+- Use WP_Query to allow for better sorting
 
 ### 1.1.1 ###
-* Fix missing wrapper closing
+- Fix missing wrapper closing
 
 ### 1.1 ###
-* Add support for ignoring specific pages and removing the header
+- Add support for ignoring specific pages and removing the header
 
 ### 1.0 ###
-* Initial plugin
+- Initial plugin
