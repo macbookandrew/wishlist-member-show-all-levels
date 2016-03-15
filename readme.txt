@@ -4,7 +4,7 @@ Tags: wishlist,membership
 Donate link: https://cash.me/$AndrewRMinionDesign
 Requires at least: 4.0
 Tested up to: 4.4.2
-Stable tag: 1.4
+Stable tag: 1.4.1
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,9 +32,33 @@ Yes; use `[wlm_all_authorized_levels show_header="false"]` to hide the header of
 
 Yes; get the IDs of those pages from the WordPress admin page and then add them to the shortcode separated by commas, like this: `[wlm_all_authorized_levels pages_to_ignore="151,20"]`.
 
+You can also use the `wlm_authorized_pages_array` filter to modify the array; see below for an example.
+
+= Can I include specific pages? =
+
+Yes, you can include specific pages using the `pages_to_include` attribute like this: `[wlm_all_authorized_levels pages_to_include="151,20"]`.
+
+You can also use the `wlm_authorized_pages_array` filter to modify the array:
+
+```
+add_filter( 'wlm_authorized_pages_array', 'tweak_wlm_pages' );
+function tweak_wlm_pages( $array ) {
+    // add a page
+    $array[] = $page_ID_to_add;
+
+    // remove a page
+    if ( $false !== ( $key = array_search( $page_ID_to_remove, $array ) ) ) {
+        unset( $array[$key] );
+    }
+
+    // return the modified array
+    return $array;
+}
+```
+
 = Can I use a custom template? =
 
-No, but there are filters for every part of the output; here’s a list of the available filters:
+Not yet, but there are filters for every part of the output; here’s a list of the available filters:
 
 - `wlm_all_levels_container_open`: wraps everything; defaults to `<div class="wishlist-member-levels">`
 - `wlm_all_levels_container_close`: defaults to `</div>`
@@ -46,6 +70,9 @@ No, but there are filters for every part of the output; here’s a list of the a
 - `wlm_all_levels_item_link`: defalts to `<a href="' . get_permalink() . '">' . get_the_title() . '</a>`; the post ID is available as a parameter to your callback function
 
 == Changelog ==
+
+1.4.1
+- Add filter for modifying the arary of pages before WP query
 
 1.4
 - Major change: defaults to showing pages in one list rather than grouped by level

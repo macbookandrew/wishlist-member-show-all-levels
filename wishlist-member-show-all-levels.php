@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/macbookandrew/wishlist-member-show-all-levels
  * GitHub Plugin URI: https://github.com/macbookandrew/wishlist-member-show-all-levels
  * Description: Provides a shortcode that outputs all levels a member is allowed to access
- * Version: 1.4
+ * Version: 1.4.1
  * Author: AndrewRMinion Design
  * Author URI: https://andrewrminion.com/
  * License: GPL2
@@ -32,6 +32,7 @@ function wlmsal_show_authorized_levels( $atts ) {
     $attributes = shortcode_atts( array(
         'show_header'       => 'true',
         'pages_to_ignore'   => array(),
+        'pages_to_include'  => array(),
         'group_by_level'    => 'false'
     ), $atts );
 
@@ -60,6 +61,14 @@ function wlmsal_show_authorized_levels( $atts ) {
                 foreach ( $this_level_pages['pages']['page'] as $this_page ) {
                     $authorized_pages_array[] = $this_page['ID'];
                 }
+
+                // add included pages
+                if ( $attributes['pages_to_include'] ) {
+                    $authorized_pages_array = array_merge( $authorized_pages_array, explode( ',', $attributes['pages_to_include'] ) );
+                }
+
+                // add filter
+                $authorized_pages_array = apply_filters( 'wlm_authorized_pages_array', $authorized_pages_array );
 
                 // WP_Query arguments
                 $args = array (
@@ -90,10 +99,18 @@ function wlmsal_show_authorized_levels( $atts ) {
                 }
             }
 
+            // add included pages
+            if ( $attributes['pages_to_include'] ) {
+                $authorized_pages_array = array_merge( $authorized_pages_array, explode( ',', $attributes['pages_to_include'] ) );
+            }
+
             // remove hidden pages
             if ( $attributes['pages_to_ignore'] ) {
                 $authorized_pages_array = array_diff( $authorized_pages_array, explode( ',', $attributes['pages_to_ignore'] ) );
             }
+
+            // add filter
+            $authorized_pages_array = apply_filters( 'wlm_authorized_pages_array', $authorized_pages_array );
 
             // WP_Query arguments
             $args = array (
