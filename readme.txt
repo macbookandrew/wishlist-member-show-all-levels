@@ -4,7 +4,7 @@ Tags: wishlist,membership
 Donate link: https://cash.me/$AndrewRMinionDesign
 Requires at least: 4.0
 Tested up to: 4.4.2
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,9 +20,13 @@ Have you ever wanted a way to show all the content a member is allowed to access
 3. See the [FAQ](faq/) for more options.
 
 == Frequently Asked Questions ==
+= Can I group pages by their level? =
+
+Yes; use `[wlm_all_authorized_levels group_by_level="true"]` to group by pages by each level and (by default) show each level’s header.
+
 = Can I hide the header? =
 
-Yes; use `[wlm_all_authorized_levels show_header="false"]` to hide the header of each level.
+Yes; use `[wlm_all_authorized_levels show_header="false"]` to hide the header of each level (only works with `group_by_level`).
 
 = Can I ignore specific pages? =
 
@@ -42,6 +46,10 @@ No, but there are filters for every part of the output; here’s a list of the a
 - `wlm_all_levels_item_link`: defalts to `<a href="' . get_permalink() . '">' . get_the_title() . '</a>`; the post ID is available as a parameter to your callback function
 
 == Changelog ==
+
+1.4
+- Major change: defaults to showing pages in one list rather than grouped by level
+- Old behavior still available with the `group_by_level="true"` attribute
 
 1.3
 - Add filters for customizing the output
