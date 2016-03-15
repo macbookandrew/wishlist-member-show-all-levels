@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/macbookandrew/wishlist-member-show-all-levels
  * GitHub Plugin URI: https://github.com/macbookandrew/wishlist-member-show-all-levels
  * Description: Provides a shortcode that outputs all levels a member is allowed to access
- * Version: 1.4
+ * Version: 1.4.1
  * Author: AndrewRMinion Design
  * Author URI: https://andrewrminion.com/
  * License: GPL2
@@ -61,6 +61,9 @@ function wlmsal_show_authorized_levels( $atts ) {
                     $authorized_pages_array[] = $this_page['ID'];
                 }
 
+                // add filter
+                $authorized_pages_array = apply_filters( 'wlm_authorized_pages_array', $authorized_pages_array );
+
                 // WP_Query arguments
                 $args = array (
                     'post__in'               => $authorized_pages_array,
@@ -94,6 +97,9 @@ function wlmsal_show_authorized_levels( $atts ) {
             if ( $attributes['pages_to_ignore'] ) {
                 $authorized_pages_array = array_diff( $authorized_pages_array, explode( ',', $attributes['pages_to_ignore'] ) );
             }
+
+            // add filter
+            $authorized_pages_array = apply_filters( 'wlm_authorized_pages_array', $authorized_pages_array );
 
             // WP_Query arguments
             $args = array (
