@@ -42,7 +42,7 @@ function wlmsal_show_authorized_levels( $atts ) {
 
     // loop over authorized levels, displaying all content for each
     if ( $authorized_levels ) {
-        $shortcode_output .= '<div class="wishlist-member-levels">';
+        $shortcode_output .= apply_filters( 'wlm_all_levels_container_open', '<div class="wishlist-member-levels">' );
         foreach ( $authorized_levels as $level ) {
 
             // get all pages and posts for this level
@@ -77,26 +77,32 @@ function wlmsal_show_authorized_levels( $atts ) {
                 }
 
                 // start list output
-                $shortcode_output .= '<ul>';
+                $shortcode_output .= apply_filters( 'wlm_all_levels_level_wrapper_open', '<ul>' );
 
                 // loop through posts
                 while ( $authorized_pages_query->have_posts() ) {
                     $authorized_pages_query->the_post();
-                    $shortcode_output .= '<li';
+                    $shortcode_output .= apply_filters( 'wlm_all_levels_item_wrapper_open', '<li' );
+                    $item_classes = apply_filters( 'wlm_all_levels_item_wrapper_class', '' );
                     if ( in_array( get_the_ID(), explode( ',', $attributes['pages_to_ignore'] ) ) ) {
-                        $shortcode_output .= ' class="hidden"';
+                        $item_classes .= ' hidden';
                     }
-                    $shortcode_output .= '><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+                    if ( $item_classes ) {
+                        $shortcode_output .= ' class="' . $item_classes . '"';
+                    }
+                    $shortcode_output .= '>';
+                    $shortcode_output .= apply_filters( 'wlm_all_levels_item_link', '<a href="' . get_permalink() . '">' . get_the_title() . '</a>', get_the_ID() );
+                    $shortcode_output .= apply_filters( 'wlm_all_levels_item_wrapper_close', '</li>' );
                 }
 
-                $shortcode_output .= '</ul>';
+                $shortcode_output .= apply_filters( 'wlm_all_levels_level_wrapper_close', '</ul>' );
             }
 
             // Restore original Post Data
             wp_reset_postdata();
 
         }
-        $shortcode_output .= '</div>';
+        $shortcode_output .= apply_filters( 'wlm_all_levels_container_close', '</div>' );
     }
 
     // return all the content
