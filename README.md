@@ -4,7 +4,7 @@
 **Donate link:** https://cash.me/$AndrewRMinionDesign  
 **Requires at least:** 4.0  
 **Tested up to:** 4.5.2  
-**Stable tag:** 1.5.1  
+**Stable tag:** 1.5.2  
 **License:** GPL2  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -60,6 +60,7 @@ You can also use the `wlm_authorized_pages_array` filter to modify the array:
 
 Not yet, but there are filters for every part of the output; here’s a list of the available filters:
 
+**- `wlm_authorized_post_types`:** array of post types included in the WP_Query; defaults to `array( 'page' )`  
 **- `wlm_all_levels_container_open`:** wraps everything; defaults to `<div class="wishlist-member-levels">`  
 **- `wlm_all_levels_container_close`:** defaults to `</div>`  
 **- `wlm_all_levels_level_wrapper_open`:** wraps the entire list of items; defaults to `<ul>`  
@@ -72,6 +73,9 @@ Not yet, but there are filters for every part of the output; here’s a list of 
 **- `wlm_no_authorized_content_message`:** defaults to `<p>Sorry, you are not authorized to access any content. Please <a href="' . admin_url() . '">log in</a>, check your subscription status, or contact us for more information.</p>`; shown when there are no pages available  
 
 ## Changelog ##
+
+### 1.5.2 ###
+- Add filter for post types
 
 ### 1.5.1 ###
 - Add login url to customer message
