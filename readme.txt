@@ -4,7 +4,7 @@ Tags: wishlist,wishlist member,membership,authorized,level,levels,account
 Donate link: https://cash.me/$AndrewRMinionDesign
 Requires at least: 4.0
 Tested up to: 4.5.2
-Stable tag: 1.5
+Stable tag: 1.5.1
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,6 +72,9 @@ Not yet, but there are filters for every part of the output; here’s a list of 
 - `wlm_no_authorized_content_message`: defaults to `<p>Sorry, you are not authorized to access any content. Please <a href="' . admin_url() . '">log in</a>, check your subscription status, or contact us for more information.</p>`; shown when there are no pages available
 
 == Changelog ==
+
+= 1.5.1 =
+- Add login url to customer message
 
 = 1.5 =
 - Add messages when no authorized levels or content is available to an end user
