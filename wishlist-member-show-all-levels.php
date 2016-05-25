@@ -127,7 +127,7 @@ function wlmsal_show_authorized_levels( $atts ) {
             $shortcode_output .= get_all_authorized_pages( $args, $attributes );
         }
     } else {
-        $shortcode_output .= apply_filters( 'wlm_no_authorized_levels_message', '<p>Sorry, you are not authorized to access any content. Please check your subscription status or contact us for more information.</p>' );
+        $shortcode_output .= apply_filters( 'wlm_no_authorized_levels_message', '<p>Sorry, you are not authorized to access any content. Please log in, check your subscription status, or contact us for more information.</p>' );
     }
     // close container
     $shortcode_output .= apply_filters( 'wlm_all_levels_container_close', '</div>' );
@@ -171,7 +171,7 @@ function get_all_authorized_pages( $args, $attributes, $level ) {
 
         $authorized_content .= apply_filters( 'wlm_all_levels_level_wrapper_close', '</ul>' );
     } else {
-        $authorized_content .= apply_filters( 'wlm_no_authorized_content_message', '<p>Sorry, you are not authorized to access any content. Please check your subscription status or contact us for more information.</p>' );
+        $authorized_content .= apply_filters( 'wlm_no_authorized_content_message', '<p>Sorry, you are not authorized to access any content. Please log in, check your subscription status, or contact us for more information.</p>' );
     }
 
     // restore original post data
