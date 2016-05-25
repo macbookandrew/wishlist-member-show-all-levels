@@ -68,6 +68,8 @@ Not yet, but there are filters for every part of the output; here’s a list of 
 - `wlm_all_levels_item_wrapper_close`: defaults to `</li>`
 - `wlm_all_levels_item_wrapper_class`: defaults to empty; space-separated list of classes to add to each item
 - `wlm_all_levels_item_link`: defalts to `<a href="' . get_permalink() . '">' . get_the_title() . '</a>`; the post ID is available as a parameter to your callback function
+- `wlm_no_authorized_levels_message`: defaults to `<p>Sorry, you are not authorized to access any content. Please check your subscription status or contact us for more information.</p>`; shown when a user is not authorized for any WishList levels
+- `wlm_no_authorized_content_message`: defaults to `<p>Sorry, you are not authorized to access any content. Please check your subscription status or contact us for more information.</p>`; shown when there are no pages available
 
 == Changelog ==
 

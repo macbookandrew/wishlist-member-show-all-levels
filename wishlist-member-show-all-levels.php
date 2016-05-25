@@ -42,10 +42,11 @@ function wlmsal_show_authorized_levels( $atts ) {
     //initialize variable
     $shortcode_output = NULL;
 
+    // open container
+    $shortcode_output .= apply_filters( 'wlm_all_levels_container_open', '<div class="wishlist-member-levels">' );
+
     // loop over authorized levels, displaying all content for each
     if ( $authorized_levels ) {
-        // open container
-        $shortcode_output .= apply_filters( 'wlm_all_levels_container_open', '<div class="wishlist-member-levels">' );
 
         // group by level
         if ( 'true' === $attributes['group_by_level'] ) {
@@ -125,13 +126,14 @@ function wlmsal_show_authorized_levels( $atts ) {
             // The Loop
             $shortcode_output .= get_all_authorized_pages( $args, $attributes );
         }
-
-        // close container
-        $shortcode_output .= apply_filters( 'wlm_all_levels_container_close', '</div>' );
-
-        // return all the content
-        return $shortcode_output;
+    } else {
+        $shortcode_output .= apply_filters( 'wlm_no_authorized_levels_message', '<p>Sorry, you are not authorized to access any content. Please check your subscription status or contact us for more information.</p>' );
     }
+    // close container
+    $shortcode_output .= apply_filters( 'wlm_all_levels_container_close', '</div>' );
+
+    // return all the content
+    return $shortcode_output;
 }
 add_shortcode( 'wlm_all_authorized_levels', 'wlmsal_show_authorized_levels' );
 
@@ -168,6 +170,8 @@ function get_all_authorized_pages( $args, $attributes, $level ) {
         }
 
         $authorized_content .= apply_filters( 'wlm_all_levels_level_wrapper_close', '</ul>' );
+    } else {
+        $authorized_content .= apply_filters( 'wlm_no_authorized_content_message', '<p>Sorry, you are not authorized to access any content. Please check your subscription status or contact us for more information.</p>' );
     }
 
     // restore original post data
