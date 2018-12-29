@@ -1,0 +1,317 @@
+devDependencies:
+  grunt: 0.4.5
+  grunt-wp-i18n: 0.5.4
+  grunt-wp-readme-to-markdown: 0.9.0
+packages:
+  /abbrev/1.1.1:
+    dev: true
+    resolution:
+      integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
+  /argparse/0.1.16:
+    dependencies:
+      underscore: 1.7.0
+      underscore.string: 2.4.0
+    dev: true
+    resolution:
+      integrity: sha1-z9AeD7uj1srtBJ+9dY1A9lGW9Xw=
+  /async/0.1.22:
+    dev: true
+    resolution:
+      integrity: sha1-D8GqoIig4+8Ovi2IMbqw3PiEUGE=
+  /async/0.9.2:
+    dev: true
+    resolution:
+      integrity: sha1-rqdNXmHB+JlhO/ZL2mbUx48v0X0=
+  /coffee-script/1.3.3:
+    deprecated: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+    dev: true
+    engines:
+      node: '>=0.4.0'
+    hasBin: true
+    resolution:
+      integrity: sha1-FQ1rTLUiiUNp7+1qIQHCC8f0pPQ=
+  /colors/0.6.2:
+    dev: true
+    engines:
+      node: '>=0.1.90'
+    resolution:
+      integrity: sha1-JCP+ZnisDF2uiFLl0OW+CMmXq8w=
+  /dateformat/1.0.2-1.2.3:
+    dev: true
+    resolution:
+      integrity: sha1-sCIMAt6YYXQztyhRz0fePfLNvuk=
+  /encoding/0.1.12:
+    dependencies:
+      iconv-lite: 0.4.24
+    dev: true
+    resolution:
+      integrity: sha1-U4tm8+5izRq1HsMjgp0flIDHS+s=
+  /esprima/1.0.4:
+    dev: true
+    engines:
+      node: '>=0.4.0'
+    hasBin: true
+    resolution:
+      integrity: sha1-n1V+CPw7TSbs6d00+Pv0drYlha0=
+  /eventemitter2/0.4.14:
+    dev: true
+    resolution:
+      integrity: sha1-j2G3XN4BKy6esoTUVFWDtWQ7Yas=
+  /exit/0.1.2:
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-BjJjj42HfMghB9MKD/8aF8uhzQw=
+  /findup-sync/0.1.3:
+    dependencies:
+      glob: 3.2.11
+      lodash: 2.4.2
+    dev: true
+    engines:
+      node: '>= 0.6.0'
+    resolution:
+      integrity: sha1-fz56l7gjksZTvwZYm9hRkOk8NoM=
+  /getobject/0.1.0:
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-BHpEl4n6Fg0Bj1SG7ZEyC27HiFw=
+  /gettext-parser/1.1.2:
+    dependencies:
+      encoding: 0.1.12
+    dev: true
+    resolution:
+      integrity: sha1-zw8MnJCJrtsO5RSZKRg+ncQ1hKc=
+  /glob/3.1.21:
+    dependencies:
+      graceful-fs: 1.2.3
+      inherits: 1.0.2
+      minimatch: 0.2.14
+    dev: true
+    resolution:
+      integrity: sha1-0p4KBV3qUTj00H7UDomC6DwgZs0=
+  /glob/3.2.11:
+    dependencies:
+      inherits: 2.0.3
+      minimatch: 0.3.0
+    dev: true
+    resolution:
+      integrity: sha1-Spc/Y1uRkPcV0QmH1cAP0oFevj0=
+  /graceful-fs/1.2.3:
+    deprecated: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+    dev: true
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha1-FaSAaldUfLLS2/J/QuiajDRRs2Q=
+  /grunt-legacy-log-utils/0.1.1:
+    dependencies:
+      colors: 0.6.2
+      lodash: 2.4.2
+      underscore.string: 2.3.3
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-wHBrndkGThFvNvI/5OawSGcsD34=
+  /grunt-legacy-log/0.1.3:
+    dependencies:
+      colors: 0.6.2
+      grunt-legacy-log-utils: 0.1.1
+      hooker: 0.2.3
+      lodash: 2.4.2
+      underscore.string: 2.3.3
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-7ClCboAwIa9ZAp+H0vnNczWgVTE=
+  /grunt-legacy-util/0.2.0:
+    dependencies:
+      async: 0.1.22
+      exit: 0.1.2
+      getobject: 0.1.0
+      hooker: 0.2.3
+      lodash: 0.9.2
+      underscore.string: 2.2.1
+      which: 1.0.9
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-kzJIhNv343qf98Am3/RR2UqeVUs=
+  /grunt-wp-i18n/0.5.4:
+    dependencies:
+      async: 0.9.2
+      gettext-parser: 1.1.2
+      grunt: 0.4.5
+      underscore: 1.8.3
+      underscore.string: 3.0.3
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-hynlrU9LIxJpch8xcWVNLGKVVJI=
+  /grunt-wp-readme-to-markdown/0.9.0:
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    peerDependencies:
+      grunt: ~0.4.1
+    resolution:
+      integrity: sha1-Krk28YKTT8Fm7+IOwZF48W70Yds=
+  /grunt/0.4.5:
+    dependencies:
+      async: 0.1.22
+      coffee-script: 1.3.3
+      colors: 0.6.2
+      dateformat: 1.0.2-1.2.3
+      eventemitter2: 0.4.14
+      exit: 0.1.2
+      findup-sync: 0.1.3
+      getobject: 0.1.0
+      glob: 3.1.21
+      grunt-legacy-log: 0.1.3
+      grunt-legacy-util: 0.2.0
+      hooker: 0.2.3
+      iconv-lite: 0.2.11
+      js-yaml: 2.0.5
+      lodash: 0.9.2
+      minimatch: 0.2.14
+      nopt: 1.0.10
+      rimraf: 2.2.8
+      underscore.string: 2.2.1
+      which: 1.0.9
+    dev: true
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-VpN81RlDJK3/bSB2MYMqnWuk5/A=
+  /hooker/0.2.3:
+    dev: true
+    resolution:
+      integrity: sha1-uDT3I8xKJCqmWWNFnfbZhMXT2Vk=
+  /iconv-lite/0.2.11:
+    dev: true
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha1-HOYKOleGSiktEyH/RgnKS7llrcg=
+  /iconv-lite/0.4.24:
+    dependencies:
+      safer-buffer: 2.1.2
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
+  /inherits/1.0.2:
+    dev: true
+    resolution:
+      integrity: sha1-ykMJ2t7mtUzAuNJH6NfHoJdb3Js=
+  /inherits/2.0.3:
+    dev: true
+    resolution:
+      integrity: sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
+  /js-yaml/2.0.5:
+    dependencies:
+      argparse: 0.1.16
+      esprima: 1.0.4
+    dev: true
+    engines:
+      node: '>= 0.6.0'
+    hasBin: true
+    resolution:
+      integrity: sha1-olrmUJmZ6X3yeMZxnaEb0Gh3Q6g=
+  /lodash/0.9.2:
+    dev: true
+    engines:
+      '0': node
+      '1': rhino
+    resolution:
+      integrity: sha1-jzSZxSRdNG1oLlsNO0B2fgnxqSw=
+  /lodash/2.4.2:
+    dev: true
+    engines:
+      '0': node
+      '1': rhino
+    resolution:
+      integrity: sha1-+t2DS5aDBz2hebPq5tnA0VBT9z4=
+  /lru-cache/2.7.3:
+    dev: true
+    resolution:
+      integrity: sha1-bUUk6LlV+V1PW1iFHOId1y+06VI=
+  /minimatch/0.2.14:
+    dependencies:
+      lru-cache: 2.7.3
+      sigmund: 1.0.1
+    deprecated: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+    dev: true
+    resolution:
+      integrity: sha1-x054BXT2PG+aCQ6Q775u9TpqdWo=
+  /minimatch/0.3.0:
+    dependencies:
+      lru-cache: 2.7.3
+      sigmund: 1.0.1
+    deprecated: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+    dev: true
+    resolution:
+      integrity: sha1-J12O2qxPG7MyZHIInnlJyDlGmd0=
+  /nopt/1.0.10:
+    dependencies:
+      abbrev: 1.1.1
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha1-bd0hvSoxQXuScn3Vhfim83YI6+4=
+  /rimraf/2.2.8:
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
+  /safer-buffer/2.1.2:
+    dev: true
+    resolution:
+      integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+  /sigmund/1.0.1:
+    dev: true
+    resolution:
+      integrity: sha1-P/IfGYytIXX587eBhT/ZTQ0ZtZA=
+  /underscore.string/2.2.1:
+    dev: true
+    resolution:
+      integrity: sha1-18D6KvXVoaZ/QlPa7pgTLnM/Dxk=
+  /underscore.string/2.3.3:
+    dev: true
+    resolution:
+      integrity: sha1-ccCL9rQosRM/N+ePo6Icgvcymw0=
+  /underscore.string/2.4.0:
+    dev: true
+    resolution:
+      integrity: sha1-jN2PusTi0uoefi6Al8QvRCKA+Fs=
+  /underscore.string/3.0.3:
+    dev: true
+    resolution:
+      integrity: sha1-Rhe4waJQz25QZPu7Nj0PqWzxRVI=
+  /underscore/1.7.0:
+    dev: true
+    resolution:
+      integrity: sha1-a7rwh3UA02vjTsqlhODbn+8DUgk=
+  /underscore/1.8.3:
+    dev: true
+    resolution:
+      integrity: sha1-Tz+1OxBuYJf8+ctBCfKl6b36UCI=
+  /which/1.0.9:
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha1-RgwdoPgQED0DIam2M6+eV15kSG8=
+registry: 'https://registry.npmjs.org/'
+shrinkwrapMinorVersion: 9
+shrinkwrapVersion: 3
+specifiers:
+  grunt: ^0.4.5
+  grunt-wp-i18n: ^0.5.4
+  grunt-wp-readme-to-markdown: ^0.9.0
