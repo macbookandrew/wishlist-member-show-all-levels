@@ -5,7 +5,7 @@
  * GitHub Plugin URI: https://github.com/macbookandrew/wishlist-member-show-all-levels
  * Description: Provides a shortcode that outputs all levels a member is allowed to access
  * Version: 1.5.2
- * Author: AndrewRMinion Design
+ * Author: Andrew Minion
  * Author URI: https://andrewrminion.com/
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
